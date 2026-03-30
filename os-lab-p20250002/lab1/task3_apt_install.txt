@@ -1,0 +1,43 @@
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Solving dependencies...
+The following additional packages will be installed:
+  mailcap mc-data
+Suggested packages:
+  antiword arc | arcanist arj cabextract catdoc texlive-binaries clzip
+  | lunzip | lzd | lzip | lziprecover | minilzip | pdlzip | plzip ctorrent
+  dbview default-jdk-headless djview4 djvulibre-bin elinks epub-utils
+  | ncbi-entrez-direct exif genisoimage gettext glade gputils gv imagemagick
+  jlha-utils | lhasa kchmviewer libaspell-dev libbatik-java libchm-bin
+  liblz4-tool libxml2-utils links2 links | w3m | lynx lyx mikmod mpg321
+  mplayer odt2txt | unoconv p7zip-full par2 poedit | potool procyon-decompiler
+  python3-boto python3-tz rar rpm sox sqlite3 timidity unace | unace-nonfree
+  unalz unar unrar | unrar-free vorbis-tools wimtools wv xpmutils
+The following NEW packages will be installed:
+  mailcap mc mc-data
+0 upgraded, 3 newly installed, 0 to remove and 320 not upgraded.
+Need to get 2,000 kB of archives.
+After this operation, 8,314 kB of additional disk space will be used.
+Get:1 http://ports.ubuntu.com/ubuntu-ports questing/main arm64 mailcap all 3.74ubuntu1 [24.1 kB]
+Get:2 http://ports.ubuntu.com/ubuntu-ports questing/universe arm64 mc-data all 3:4.8.33-1.1 [1,383 kB]
+Get:3 http://ports.ubuntu.com/ubuntu-ports questing/universe arm64 mc arm64 3:4.8.33-1.1 [593 kB]
+Fetched 2,000 kB in 5s (421 kB/s)
+Selecting previously unselected package mailcap.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 168851 files and directories currently installed.)
+Preparing to unpack .../mailcap_3.74ubuntu1_all.deb ...
+Unpacking mailcap (3.74ubuntu1) ...
+Selecting previously unselected package mc-data.
+Preparing to unpack .../mc-data_3%3a4.8.33-1.1_all.deb ...
+Unpacking mc-data (3:4.8.33-1.1) ...
+Selecting previously unselected package mc.
+Preparing to unpack .../mc_3%3a4.8.33-1.1_arm64.deb ...
+Unpacking mc (3:4.8.33-1.1) ...
+Setting up mc-data (3:4.8.33-1.1) ...
+Setting up mailcap (3.74ubuntu1) ...
+Setting up mc (3:4.8.33-1.1) ...
+update-alternatives: using /usr/bin/mcview to provide /usr/bin/view (view) in auto mode
+Processing triggers for man-db (2.13.1-1) ...
+Processing triggers for desktop-file-utils (0.28-1) ...
+Processing triggers for hicolor-icon-theme (0.18-2) ...
+Processing triggers for gnome-menus (3.36.0-3ubuntu2) ...

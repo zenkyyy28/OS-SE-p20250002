@@ -1,0 +1,5 @@
+Hit:1 http://ports.ubuntu.com/ubuntu-ports questing InRelease
+Hit:2 http://ports.ubuntu.com/ubuntu-ports questing-updates InRelease
+Hit:3 http://ports.ubuntu.com/ubuntu-ports questing-backports InRelease
+Hit:4 http://ports.ubuntu.com/ubuntu-ports questing-security InRelease
+Reading package lists...
