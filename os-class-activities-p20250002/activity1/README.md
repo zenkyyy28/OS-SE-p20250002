@@ -1,20 +1,22 @@
 # Class Activity 1 — System Calls in Practice
 
-- **Student Name:** [Dara Panhaseth]
+- **Student Name:** Dara Panhaseth
 - **Student ID:** p20250002
-- **Date:** March 30, 2026
+- **Date:** March 31, 2026
 
 ---
 
 ## Warm-Up: Hello System Call
 
-Screenshot of running `hello_syscall.c` on Linux:
+Screenshot of running `hello_syscall` on Linux:
 
 ![Hello syscall](screenshots/hello_syscall.png)
 
-Screenshot of running `copyfilesyscall.c` on Linux:
+Screenshot of running `copyfilesyscall` on Linux:
 
 ![Copy file syscall](screenshots/copyfilesyscall.png)
+
+**Warm-up source files are located in `warmup/` folder.**
 
 ---
 
@@ -197,8 +199,30 @@ The library version made significantly more system calls than the system call ve
 
 ---
 
+## Folder Structure
+activity1/
+├── README.md
+├── screenshots/ # All screenshot images
+├── warmup/ # Warm-up examples
+│ ├── hello_syscall.c
+│ ├── copyfilesyscall.c
+│ └── ...
+├── task1/ # File Creator & Reader
+│ ├── file_creator_lib.c
+│ ├── file_creator_sys.c
+│ ├── file_reader_lib.c
+│ ├── file_reader_sys.c
+│ └── output.txt
+├── task2/ # Directory Listing
+│ ├── dir_list_lib.c
+│ └── dir_list_sys.c
+└── task3_strace/ # strace output files
+├── strace_lib_task1.txt
+├── strace_sys_task1.txt
+├── strace_summary_lib.txt
+└── strace_summary_sys.txt
+
+---
+
 ## Reflection
-
-What did you learn from this activity? What was the most surprising difference between library functions and system calls?
-
-[Write your reflection here — 3-5 sentences about what you learned]
+In this activity, I learned that library functions like fopen() and printf() are convenient wrappers that hide the complexity of making direct system calls like open() and write(). Using strace, I could see that the library version makes many more system calls due to buffering and library initialization. The most surprising discovery was that printf() doesn't directly call write() every time — it buffers output and only makes one system call when the buffer is full or the program exits. I also learned that the /proc filesystem provides a window into the kernel, allowing user programs to access hardware and process information through virtual files. This activity helped me understand the fundamental difference between user-space library functions and kernel-level system calls.
