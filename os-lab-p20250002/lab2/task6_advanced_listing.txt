@@ -1,0 +1,214 @@
+=== Task 6 ===
+--- Recursive (ls -R) ---
+techcorp:
+engineering
+hr
+marketing
+
+techcorp/engineering:
+backend
+devops
+frontend
+
+techcorp/engineering/backend:
+app.js
+database.sql
+server_config.txt
+
+techcorp/engineering/devops:
+Dockerfile
+docker-compose.yml
+pipeline.txt
+server_notice.txt
+
+techcorp/engineering/frontend:
+app_config.txt
+index.html
+styles.css
+
+techcorp/hr:
+onboarding
+policies
+
+techcorp/hr/onboarding:
+checklist.txt
+handbook.txt
+leave_policy.txt
+welcome_guide.txt
+
+techcorp/hr/policies:
+leave_policy.txt
+remote_work.txt
+
+techcorp/marketing:
+assets
+campaigns
+
+techcorp/marketing/assets:
+banner.jpg
+brochure.pdf
+logo.png
+logo_brief.txt
+
+techcorp/marketing/campaigns:
+q1_2026_launch.txt
+social_media.txt
+--- Sort by Size (ls -lS) ---
+techcorp/engineering/backend/:
+total 4
+-rw-rw-r-- 1 seth seth 29 Mar 30 16:51 server_config.txt
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:51 database.sql
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:51 app.js
+
+techcorp/engineering/devops/:
+total 8
+-rw-rw-r-- 1 seth seth 29 Mar 30 16:51 pipeline.txt
+-rw-rw-r-- 1 seth seth 27 Mar 30 16:59 server_notice.txt
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:51 docker-compose.yml
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:51 Dockerfile
+
+techcorp/engineering/frontend/:
+total 4
+-rw-rw-r-- 1 seth seth 26 Mar 30 16:50 app_config.txt
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:50 index.html
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:50 styles.css
+--- Sort by Time (ls -lt) ---
+techcorp/hr/onboarding/:
+total 12
+-rw-rw-r-- 1 seth seth 39 Mar 30 16:59 leave_policy.txt
+-rw-rw-r-- 1 seth seth 18 Mar 30 16:59 handbook.txt
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:49 checklist.txt
+-rw-rw-r-- 1 seth seth 52 Mar 30 16:48 welcome_guide.txt
+
+techcorp/hr/policies/:
+total 8
+-rw-rw-r-- 1 seth seth 32 Mar 30 16:48 remote_work.txt
+-rw-rw-r-- 1 seth seth 39 Mar 30 16:48 leave_policy.txt
+total 8
+-rw-rw-r-- 1 seth seth 35 Mar 30 16:52 social_media.txt
+-rw-rw-r-- 1 seth seth 32 Mar 30 16:52 q1_2026_launch.txt
+--- Human-Readable (ls -lh) ---
+total 4.0K
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:52 banner.jpg
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:52 brochure.pdf
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:52 logo.png
+-rw-rw-r-- 1 seth seth 11 Mar 30 16:59 logo_brief.txt
+total 8.0K
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:51 Dockerfile
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:51 docker-compose.yml
+-rw-rw-r-- 1 seth seth 29 Mar 30 16:51 pipeline.txt
+-rw-rw-r-- 1 seth seth 27 Mar 30 16:59 server_notice.txt
+--- Reverse by Size (ls -rlS) ---
+total 4
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:51 app.js
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:51 database.sql
+-rw-rw-r-- 1 seth seth 29 Mar 30 16:51 server_config.txt
+--- Reverse by Time (ls -rlt) ---
+total 12
+-rw-rw-r-- 1 seth seth 52 Mar 30 16:48 welcome_guide.txt
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:49 checklist.txt
+-rw-rw-r-- 1 seth seth 18 Mar 30 16:59 handbook.txt
+-rw-rw-r-- 1 seth seth 39 Mar 30 16:59 leave_policy.txt
+--- Combined: ls -lhRS ---
+techcorp/:
+total 12K
+drwxrwxr-x 5 seth seth 4.0K Mar 30 16:48 engineering
+drwxrwxr-x 4 seth seth 4.0K Mar 30 16:59 marketing
+drwxrwxr-x 4 seth seth 4.0K Mar 30 16:48 hr
+
+techcorp/engineering:
+total 12K
+drwxrwxr-x 2 seth seth 4.0K Mar 30 16:59 backend
+drwxrwxr-x 2 seth seth 4.0K Mar 30 16:50 frontend
+drwxrwxr-x 2 seth seth 4.0K Mar 30 16:59 devops
+
+techcorp/engineering/backend:
+total 4.0K
+-rw-rw-r-- 1 seth seth 29 Mar 30 16:51 server_config.txt
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:51 database.sql
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:51 app.js
+
+techcorp/engineering/frontend:
+total 4.0K
+-rw-rw-r-- 1 seth seth 26 Mar 30 16:50 app_config.txt
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:50 index.html
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:50 styles.css
+
+techcorp/engineering/devops:
+total 8.0K
+-rw-rw-r-- 1 seth seth 29 Mar 30 16:51 pipeline.txt
+-rw-rw-r-- 1 seth seth 27 Mar 30 16:59 server_notice.txt
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:51 docker-compose.yml
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:51 Dockerfile
+
+techcorp/marketing:
+total 8.0K
+drwxrwxr-x 2 seth seth 4.0K Mar 30 16:59 campaigns
+drwxrwxr-x 2 seth seth 4.0K Mar 30 16:59 assets
+
+techcorp/marketing/campaigns:
+total 8.0K
+-rw-rw-r-- 1 seth seth 35 Mar 30 16:52 social_media.txt
+-rw-rw-r-- 1 seth seth 32 Mar 30 16:52 q1_2026_launch.txt
+
+techcorp/marketing/assets:
+total 4.0K
+-rw-rw-r-- 1 seth seth 11 Mar 30 16:59 logo_brief.txt
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:52 brochure.pdf
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:52 logo.png
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:52 banner.jpg
+
+techcorp/hr:
+total 8.0K
+drwxrwxr-x 2 seth seth 4.0K Mar 30 16:59 policies
+drwxrwxr-x 2 seth seth 4.0K Mar 30 16:59 onboarding
+
+techcorp/hr/policies:
+total 8.0K
+-rw-rw-r-- 1 seth seth 39 Mar 30 16:48 leave_policy.txt
+-rw-rw-r-- 1 seth seth 32 Mar 30 16:48 remote_work.txt
+
+techcorp/hr/onboarding:
+total 12K
+-rw-rw-r-- 1 seth seth 52 Mar 30 16:48 welcome_guide.txt
+-rw-rw-r-- 1 seth seth 39 Mar 30 16:59 leave_policy.txt
+-rw-rw-r-- 1 seth seth 18 Mar 30 16:59 handbook.txt
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:49 checklist.txt
+--- Challenge ---
+--- Most recent in onboarding ---
+total 12
+-rw-rw-r-- 1 seth seth 39 Mar 30 16:59 leave_policy.txt
+--- Recursive human-readable marketing ---
+techcorp/marketing/:
+total 8
+drwxrwxr-x 2 seth seth 4096 Mar 30 16:59 assets
+drwxrwxr-x 2 seth seth 4096 Mar 30 16:59 campaigns
+
+techcorp/marketing/assets:
+total 4
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:52 banner.jpg
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:52 brochure.pdf
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:52 logo.png
+-rw-rw-r-- 1 seth seth 11 Mar 30 16:59 logo_brief.txt
+
+techcorp/marketing/campaigns:
+total 8
+-rw-rw-r-- 1 seth seth 32 Mar 30 16:52 q1_2026_launch.txt
+-rw-rw-r-- 1 seth seth 35 Mar 30 16:52 social_media.txt
+--- Smallest files first in devops ---
+total 8
+-rw-rw-r-- 1 seth seth 29 Mar 30 16:51 pipeline.txt
+-rw-rw-r-- 1 seth seth 27 Mar 30 16:59 server_notice.txt
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:51 docker-compose.yml
+-rw-rw-r-- 1 seth seth  0 Mar 30 16:51 Dockerfile
+--- Hidden files in home ---
+total 84
+drwxr-x--- 17 seth seth 4096 Mar 30 14:36 .
+drwxr-xr-x  3 root root 4096 Mar 19 21:11 ..
+drwxr-xr-x  2 seth seth 4096 Mar 19 21:12 Public
+drwxr-xr-x  2 seth seth 4096 Mar 19 21:12 Videos
+drwxr-xr-x  2 seth seth 4096 Mar 19 21:12 Downloads
+drwx------  4 seth seth 4096 Mar 19 21:12 .local
+drwxr-xr-x  2 seth seth 4096 Mar 19 21:12 Pictures
+drwx------  5 seth seth 4096 Mar 30 13:48 snap
+drwxrwxr-x  3 seth seth 4096 Mar 30 13:52 os-se-p20250002

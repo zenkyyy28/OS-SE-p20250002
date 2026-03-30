@@ -1,0 +1,49 @@
+/home/seth
+total 84
+drwxr-x--- 17 seth seth 4096 Mar 30 14:36 .
+drwxr-xr-x  3 root root 4096 Mar 19 21:11 ..
+-rw-------  1 seth seth 2201 Mar 30 16:41 .bash_history
+-rw-r--r--  1 seth seth  220 Sep  8  2025 .bash_logout
+-rw-r--r--  1 seth seth 3771 Sep  8  2025 .bashrc
+drwx------ 12 seth seth 4096 Mar 30 14:39 .cache
+drwx------ 14 seth seth 4096 Mar 30 14:36 .config
+drwx------  2 seth seth 4096 Mar 30 16:41 .gnupg
+drwx------  4 seth seth 4096 Mar 19 21:12 .local
+-rw-r--r--  1 seth seth  807 Sep  8  2025 .profile
+drwx------  2 seth seth 4096 Mar 30 14:39 .ssh
+drwxr-xr-x  2 seth seth 4096 Mar 19 21:12 Desktop
+drwxr-xr-x  3 seth seth 4096 Mar 30 14:45 Documents
+drwxr-xr-x  2 seth seth 4096 Mar 19 21:12 Downloads
+drwxr-xr-x  2 seth seth 4096 Mar 19 21:12 Music
+drwxr-xr-x  2 seth seth 4096 Mar 19 21:12 Pictures
+drwxr-xr-x  2 seth seth 4096 Mar 19 21:12 Public
+drwxr-xr-x  2 seth seth 4096 Mar 19 21:12 Templates
+drwxr-xr-x  2 seth seth 4096 Mar 19 21:12 Videos
+drwxrwxr-x  3 seth seth 4096 Mar 30 13:52 os-se-p20250002
+drwx------  5 seth seth 4096 Mar 30 13:48 snap
+--- Root directory (/) ---
+/
+bin
+boot
+cdrom
+dev
+etc
+home
+lib
+lost+found
+media
+mnt
+opt
+proc
+root
+run
+sbin
+snap
+srv
+swap.img
+sys
+tmp
+usr
+var
+--- Back to home ---
+/home/seth

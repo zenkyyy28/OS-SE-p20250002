@@ -1,0 +1,16 @@
+=== Task 4 ===
+/home/seth/os-se-p20250002/os-lab-p20250002/lab2/techcorp/hr/policies
+/home/seth/os-se-p20250002/os-lab-p20250002/lab2/techcorp/hr/onboarding
+/home/seth/os-se-p20250002/os-lab-p20250002/lab2/techcorp/hr/onboarding
+/home/seth/os-se-p20250002/os-lab-p20250002/lab2/techcorp/engineering/frontend
+/home/seth/os-se-p20250002/os-lab-p20250002/lab2/techcorp
+/home/seth/os-se-p20250002/os-lab-p20250002/lab2/techcorp/marketing/campaigns
+/home/seth/os-se-p20250002/os-lab-p20250002/lab2/techcorp
+--- Challenge ---
+/home/seth/os-se-p20250002/os-lab-p20250002/lab2/techcorp/engineering/backend
+/home/seth/os-se-p20250002/os-lab-p20250002/lab2/techcorp/marketing/assets
+/usr/bin
+/home/seth/os-se-p20250002/os-lab-p20250002/lab2/techcorp/marketing/assets
+/home/seth/os-se-p20250002/os-lab-p20250002/lab2/techcorp/hr/onboarding
+checklist.txt
+welcome_guide.txt
