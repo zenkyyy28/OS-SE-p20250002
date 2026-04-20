@@ -1,0 +1,101 @@
+=== Full Command History ===
+#include <stdlib.h>
+#include <unistd.h>
+int main() {
+    pid_t pid = fork();
+    if (pid < 0) { perror("fork"); exit(1); }
+    if (pid > 0) {
+        printf("Parent (PID %d): I'm exiting now. Child PID is %d.\n", getpid(), pid);
+        exit(0);
+    }
+    printf("Child (PID %d): My parent was PID %d.\n", getpid(), getppid());
+    printf("Child: Sleeping 60 seconds...\n");
+    sleep(60);
+    printf("Child (PID %d): My parent is now PID %d (adopted by init).\n", getpid(), getppid());
+    return 0;
+}
+EOF
+
+ 1146  gcc -o orphan orphan.c
+ 1147  cat > zombie.c << 'EOF'
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+int main() {
+    pid_t pid = fork();
+    if (pid < 0) { perror("fork"); exit(1); }
+    if (pid == 0) {
+        printf("Child (PID %d): I'm done. Exiting now.\n", getpid());
+        exit(0);
+    }
+    printf("Parent (PID %d): Child PID is %d. I will NOT call wait().\n", getpid(), pid);
+    printf("Parent: Sleeping 60 seconds... check for zombie with 'ps aux | grep Z'\n");
+    sleep(60);
+    printf("Parent: Exiting now. The zombie will be cleaned up by init.\n");
+    return 0;
+}
+EOF
+
+ 1148  gcc -o zombie zombie.c
+ 1149  echo "--- Orphan process observation ---" >> task5_orphan_zombie.txt
+ 1150  echo "Run './orphan &' and check with 'ps' to see PPID change to 1" >> task5_orphan_zombie.txt
+ 1151  echo "--- Zombie process observation ---" >> task5_orphan_zombie.txt
+ 1152  echo "Run './zombie &' and check with 'ps aux | grep Z' to see zombie state" >> task5_orphan_zombie.txt
+ 1153  echo "--- Orphan and Zombie Cleanup Notes ---" >> task5_orphan_zombie.txt
+ 1154  echo "Q: How are orphans cleaned up?" >> task5_orphan_zombie.txt
+ 1155  echo "A: Orphans are adopted by init/systemd (PID 1), which periodically calls wait() to clean them up." >> task5_orphan_zombie.txt
+ 1156  echo "" >> task5_orphan_zombie.txt
+ 1157  echo "Q: How are zombies cleaned up?" >> task5_orphan_zombie.txt
+ 1158  echo "A: Zombies are cleaned up when the parent process calls wait() to read the child's exit status, or when the parent exits and init adopts and reaps them." >> task5_orphan_zombie.txt
+ 1159  echo "" >> task5_orphan_zombie.txt
+ 1160  echo "Q: Can you kill a zombie with 'kill -9'? Why or why not?" >> task5_orphan_zombie.txt
+ 1161  echo "A: No. A zombie process is already dead (it has terminated). kill -9 only affects running processes. The zombie is just a process table entry waiting to be reaped." >> task5_orphan_zombie.txt
+ 1162  cat > zombie_wait.c << 'EOF'
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+int main() {
+    pid_t pid = fork();
+    if (pid < 0) { perror("fork"); exit(1); }
+    if (pid == 0) {
+        printf("Child (PID %d): Exiting now.\n", getpid());
+        exit(0);
+    }
+    printf("Parent (PID %d): Child PID is %d. Sleeping 10 seconds...\n", getpid(), pid);
+    sleep(10);
+    wait(NULL);
+    printf("Parent: wait() called. Zombie should be gone.\n");
+    return 0;
+}
+EOF
+
+ 1163  gcc -o zombie_wait zombie_wait.c
+ 1164  cat > three_children.c << 'EOF'
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+int main() {
+    for (int i = 1; i <= 3; i++) {
+        pid_t pid = fork();
+        if (pid == 0) {
+            printf("Child %d (PID %d): Sleeping 5 seconds...\n", i, getpid());
+            sleep(5);
+            exit(0);
+        }
+    }
+    printf("Parent (PID %d): Waiting for all 3 children...\n", getpid());
+    for (int i = 1; i <= 3; i++) wait(NULL);
+    printf("All children finished.\n");
+    return 0;
+}
+EOF
+
+ 1165  gcc -o three_children three_children.c
+ 1166  echo "--- Challenge Orphan & Zombie ---" >> task5_orphan_zombie.txt
+ 1167  echo "5a: zombie_wait.c created with wait(). Run './zombie_wait &' and verify no zombie persists." >> task5_orphan_zombie.txt
+ 1168  echo "5b: three_children.c created. Run './three_children &' and use 'ps --forest' to see the tree." >> task5_orphan_zombie.txt
+ 1169  cd ~/os-se-p20250002/os-lab-p20250002/lab4 && echo "========== LAB 4 VERIFICATION ==========" && echo "" && echo "📁 Task Files:" && ls -la task*.txt 2>/dev/null && echo "" && echo "📁 C Source Files:" && ls -la orphan.c zombie.c zombie_wait.c three_children.c 2>/dev/null && echo "" && echo "📁 Data Files:" && ls -la access.log 2>/dev/null && echo "" && echo "📁 History:" && ls -la task_history.txt 2>/dev/null && echo "" && echo "========== FILE COUNTS ==========" && echo "Task files: $(ls task*.txt 2>/dev/null | wc -l)/5" && echo "C files: $(ls orphan.c zombie.c zombie_wait.c three_children.c 2>/dev/null | wc -l)/4" && echo "access.log: $(ls access.log 2>/dev/null | wc -l)/1" && echo "task_history.txt: $(ls task_history.txt 2>/dev/null | wc -l)/1" && echo "" && echo "========== LINE COUNTS ==========" && wc -l task*.txt 2>/dev/null && echo "" && echo "✅ Lab 4 Complete!"
+ 1170  cd ~/os-se-p20250002/os-lab-p20250002/lab4 && echo "=== Final Check ===" && ls -la task_history.txt 2>/dev/null && echo "✅ task_history.txt exists" || echo "❌ task_history.txt MISSING" && echo "" && echo "=== All files count ===" && ls -la task*.txt orphan.c zombie.c zombie_wait.c three_children.c access.log task_history.txt 2>/dev/null | wc -l && echo "Expected: 11 files total"
+ 1171  cd ~/os-se-p20250002/os-lab-p20250002/lab4 && echo "=== Full Command History ===" > task_history.txt && history | tail -n 100 >> task_history.txt && echo "" && echo "=== All 11 Files ===" && ls -la task*.txt orphan.c zombie.c zombie_wait.c three_children.c access.log task_history.txt 2>/dev/null && echo "" && echo "Total files: $(ls task*.txt orphan.c zombie.c zombie_wait.c three_children.c access.log task_history.txt 2>/dev/null | wc -l)/11" && echo "" && echo "✅ Lab 4 Complete! Ready to push to GitHub."

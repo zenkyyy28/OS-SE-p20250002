@@ -1,0 +1,10 @@
+ImageMagick-7
+ModemManager
+NetworkManager
+PackageKit
+UPower
+X11
+adduser.conf
+alsa
+alternatives
+anacrontab

@@ -1,0 +1,69 @@
+=== Task 2: Hard Links and Symbolic Links ===
+--- Original file ---
+3671218 -rw-rw-r-- 1 seth seth 35 Apr  6 14:12 config_original.txt
+TechCorp Global Configuration v3.1
+
+--- After creating hard link ---
+3671218 -rw-rw-r-- 2 seth seth 35 Apr  6 14:12 config_hardlink.txt
+3671218 -rw-rw-r-- 2 seth seth 35 Apr  6 14:12 config_original.txt
+
+--- After creating symbolic link ---
+3671218 -rw-rw-r-- 2 seth seth 35 Apr  6 14:12 config_hardlink.txt
+3671218 -rw-rw-r-- 2 seth seth 35 Apr  6 14:12 config_original.txt
+3671219 lrwxrwxrwx 1 seth seth 19 Apr  6 14:12 config_symlink.txt -> config_original.txt
+
+--- Content via hard link ---
+TechCorp Global Configuration v3.1
+--- Content via symbolic link ---
+TechCorp Global Configuration v3.1
+
+--- After modifying original ---
+Hard link content:
+TechCorp Global Configuration v3.1
+Updated: New security patch applied.
+Symlink content:
+TechCorp Global Configuration v3.1
+Updated: New security patch applied.
+
+--- After deleting original file ---
+Hard link still works:
+TechCorp Global Configuration v3.1
+Updated: New security patch applied.
+Symlink is broken:
+cat: config_symlink.txt: No such file or directory (os error 2)
+
+--- stat on hard link ---
+  File: config_hardlink.txt
+  size: 72        	Blocks: 8          IO Block: 4096   regular file
+Device: fd02h/64770d	Inode: 3671218     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/    seth)   Gid: ( 1000/    seth)
+Access: 2026-04-06 14:13:18.339123982 +0700
+Modify: 2026-04-06 14:13:09.807257888 +0700
+Change: 2026-04-06 14:13:18.333124077 +0700
+ Birth: 2026-04-06 14:12:45.512491838 +0700
+--- readlink on symlink ---
+config_original.txt
+
+--- Symlink to directory ---
+lrwxrwxrwx 1 seth seth 17 Apr  6 14:13 web_shortcut -> projects/frontend
+index.html
+
+--- Real-world symlinks in /usr/bin ---
+lrwxrwxrwx 1 root root      10 Aug 21  2025 /usr/bin/python3 -> python3.13
+-rwxr-xr-x 1 root root 7263664 Aug 21  2025 /usr/bin/python3.13
+--- Challenge Links ---
+2a: Hard links created - same inode numbers:
+3671239 -rw-rw-r-- 3 seth seth 35 Apr  6 14:14 eng_data.txt
+3671239 -rw-rw-r-- 3 seth seth 35 Apr  6 14:14 hr_data.txt
+3671239 -rw-rw-r-- 3 seth seth 35 Apr  6 14:14 shared_data.txt
+2b: Symbolic link to directory:
+lrwxrwxrwx 1 seth seth 27 Apr  6 14:14 quick_access -> links_lab/projects/frontend
+index.html
+2c: After deleting original shared_data.txt:
+Can still read hr_data.txt:
+Shared resource across departments
+Can still read eng_data.txt:
+Shared resource across departments
+Link count now shows 2 (was 3):
+3671239 -rw-rw-r-- 2 seth seth 35 Apr  6 14:14 eng_data.txt
+3671239 -rw-rw-r-- 2 seth seth 35 Apr  6 14:14 hr_data.txt

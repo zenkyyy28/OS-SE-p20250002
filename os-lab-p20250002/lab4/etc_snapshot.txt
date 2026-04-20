@@ -1,0 +1,20 @@
+total 1216
+drwxr-xr-x 141 root                 root                 12288 Apr  6 16:11 .
+drwxr-xr-x  20 root                 root                  4096 Mar 19 11:01 ..
+-rw-------   1 root                 root                     0 Oct  7 09:35 .pwd.lock
+-rw-r--r--   1 root                 root                   789 Oct  7 09:35 .resolv.conf.systemd-resolved.bak
+-rw-r--r--   1 root                 root                   208 Oct  7 09:35 .updated
+drwxr-xr-x   2 root                 root                  4096 Apr  6 16:11 ImageMagick-7
+drwxr-xr-x   5 root                 root                  4096 Oct  7 09:45 ModemManager
+drwxr-xr-x   8 root                 root                  4096 Oct  7 09:46 NetworkManager
+drwxr-xr-x   2 root                 root                  4096 Oct  7 09:50 PackageKit
+drwxr-xr-x   2 root                 root                  4096 Oct  7 09:47 UPower
+drwxr-xr-x  11 root                 root                  4096 Oct  7 09:50 X11
+-rw-r--r--   1 root                 root                  4027 May 23  2025 adduser.conf
+drwxr-xr-x   3 root                 root                  4096 Oct  7 09:44 alsa
+drwxr-xr-x   2 root                 root                  4096 Apr  6 16:11 alternatives
+-rw-r--r--   1 root                 root                   394 Jun 12  2025 anacrontab
+drwxr-xr-x   5 root                 root                  4096 Oct  7 09:44 apm
+drwxr-xr-x   2 root                 root                  4096 Oct  7 09:43 apparmor
+drwxr-xr-x   9 root                 root                  4096 Oct  7 10:15 apparmor.d
+drwxr-xr-x   3 root                 root                  4096 Oct  7 09:47 apport

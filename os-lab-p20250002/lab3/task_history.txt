@@ -1,0 +1,101 @@
+=== Full Command History ===
+int tc_get_cpu_count(void) {
+    return (int)sysconf(_SC_NPROCESSORS_ONLN);
+}
+EOF
+
+  609  gcc -fPIC -c techcorp_sysinfo.c -o techcorp_sysinfo.o
+  610  gcc -shared -o libtechcorp_sysinfo.so techcorp_sysinfo.o
+  611  echo "" >> ../task5_shared_library.txt
+  612  echo "--- Compiled shared library ---" >> ../task5_shared_library.txt
+  613  file libtechcorp_sysinfo.so >> ../task5_shared_library.txt
+  614  ls -l libtechcorp_sysinfo.so >> ../task5_shared_library.txt
+  615  cat > sysinfo_test.c << 'EOF'
+#include <stdio.h>
+#include "techcorp_sysinfo.h"
+
+int main(void) {
+    printf("=== TechCorp System Info Report ===\n");
+    printf("Hostname : %s\n", tc_get_hostname());
+    printf("Uptime   : %s\n", tc_get_uptime());
+    printf("CPU Cores: %d\n", tc_get_cpu_count());
+    printf("===================================\n");
+    return 0;
+}
+EOF
+
+  616  echo "" >> ../task5_shared_library.txt
+  617  echo "--- Test program ---" >> ../task5_shared_library.txt
+  618  cat sysinfo_test.c >> ../task5_shared_library.txt
+  619  gcc sysinfo_test.c -L. -ltechcorp_sysinfo -o sysinfo_test
+  620  echo "" >> ../task5_shared_library.txt
+  621  echo "--- Integration: ldd on test program ---" >> ../task5_shared_library.txt
+  622  ldd ./sysinfo_test >> ../task5_shared_library.txt 2>&1
+  623  echo "" >> ../task5_shared_library.txt
+  624  echo "--- Integration: Test run ---" >> ../task5_shared_library.txt
+  625  LD_LIBRARY_PATH=. ./sysinfo_test >> ../task5_shared_library.txt
+  626  cat > techcorp_sysinfo.h << 'EOF'
+#ifndef TECHCORP_SYSINFO_H
+#define TECHCORP_SYSINFO_H
+
+const char* tc_get_hostname(void);
+const char* tc_get_uptime(void);
+int tc_get_cpu_count(void);
+
+long tc_get_memory_mb(void);
+
+#endif
+EOF
+
+  627  cat > techcorp_memory.c << 'EOF'
+#include "techcorp_sysinfo.h"
+#include <stdio.h>
+
+long tc_get_memory_mb(void) {
+    FILE *fp = fopen("/proc/meminfo", "r");
+    if (fp) {
+        long mem_kb = 0;
+        if (fscanf(fp, "MemTotal: %ld kB", &mem_kb) == 1) {
+            fclose(fp);
+            return mem_kb / 1024;
+        }
+        fclose(fp);
+    }
+    return -1;
+}
+EOF
+
+  628  gcc -fPIC -c techcorp_sysinfo.c -o techcorp_sysinfo.o
+  629  gcc -fPIC -c techcorp_memory.c -o techcorp_memory.o
+  630  gcc -shared -o libtechcorp_sysinfo.so techcorp_sysinfo.o techcorp_memory.o
+  631  cat > sysinfo_test_v2.c << 'EOF'
+#include <stdio.h>
+#include "techcorp_sysinfo.h"
+
+int main(void) {
+    printf("=== TechCorp System Info Report v2 ===\n");
+    printf("Hostname : %s\n", tc_get_hostname());
+    printf("Uptime   : %s\n", tc_get_uptime());
+    printf("CPU Cores: %d\n", tc_get_cpu_count());
+    printf("Memory   : %ld MB\n", tc_get_memory_mb());
+    printf("======================================\n");
+    return 0;
+}
+EOF
+
+  632  gcc sysinfo_test_v2.c -L. -ltechcorp_sysinfo -o sysinfo_test_v2
+  633  sudo cp libtechcorp_sysinfo.so /usr/local/lib/
+  634  sudo ldconfig
+  635  echo "" >> ../task5_shared_library.txt
+  636  echo "--- System-wide install: ldconfig cache ---" >> ../task5_shared_library.txt
+  637  ldconfig -p | grep techcorp >> ../task5_shared_library.txt
+  638  echo "" >> ../task5_shared_library.txt
+  639  echo "--- System-wide test ---" >> ../task5_shared_library.txt
+  640  ldd ./sysinfo_test_v2 >> ../task5_shared_library.txt 2>&1
+  641  ./sysinfo_test_v2 >> ../task5_shared_library.txt
+  642  clean up
+  643  sudo rm /usr/local/lib/libtechcorp_sysinfo.so
+  644  sudo ldconfig
+  645  cd ..
+  646  echo "=== Full Command History ===" > task_history.txt
+  647  history | tail -n 100 >> task_history.txt

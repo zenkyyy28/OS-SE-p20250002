@@ -1,0 +1,308 @@
+=== Task 1: I/O Redirection ===
+--- stdout to file (overwrite) ---
+ImageMagick-7
+ModemManager
+NetworkManager
+PackageKit
+UPower
+X11
+adduser.conf
+alsa
+alternatives
+anacrontab
+--- stdout append ---
+First line
+Second line
+Third line
+--- stderr redirection ---
+--- separate stdout and stderr ---
+stdout:
+/etc:
+ImageMagick-7
+ModemManager
+NetworkManager
+PackageKit
+UPower
+X11
+adduser.conf
+alsa
+alternatives
+anacrontab
+apm
+apparmor
+apparmor.d
+apport
+apt
+avahi
+bash.bashrc
+bash_completion
+bash_completion.d
+bindresvport.blacklist
+binfmt.d
+bluetooth
+brlapi.key
+brltty
+brltty.conf
+ca-certificates
+ca-certificates.conf
+chatscripts
+chrony
+cloud
+colord
+console-setup
+cracklib
+credstore
+credstore.encrypted
+cron.d
+cron.daily
+cron.hourly
+cron.monthly
+cron.weekly
+cron.yearly
+crontab
+cups
+cupshelpers
+dbus-1
+dconf
+debconf.conf
+debian_version
+debuginfod
+default
+deluser.conf
+depmod.d
+dhcp
+dhcpcd.conf
+dictionaries-common
+dpkg
+dracut.conf
+dracut.conf.d
+e2scrub.conf
+emacs
+environment
+environment.d
+ethertypes
+fonts
+fprintd.conf
+fstab
+fuse.conf
+fwupd
+gai.conf
+gdb
+gdm3
+geoclue
+ghostscript
+glvnd
+gnome
+gnome-remote-desktop
+gnutls
+gprofng.rc
+groff
+group
+group-
+grub.d
+gshadow
+gshadow-
+gss
+gtk-2.0
+gtk-3.0
+hdparm.conf
+host.conf
+hostname
+hosts
+hosts.allow
+hosts.deny
+hp
+ifplugd
+init
+init.d
+initramfs-tools
+inputrc
+insserv.conf.d
+ipp-usb
+issue
+issue.net
+kdump
+kernel
+krb5.conf.d
+ld.so.cache
+ld.so.conf
+ld.so.conf.d
+ldap
+legal
+libao.conf
+libaudit.conf
+libblockdev
+libibverbs.d
+libnl-3
+libreoffice
+locale.conf
+locale.gen
+localtime
+logcheck
+login.defs
+logrotate.conf
+logrotate.d
+lsb-release
+machine-id
+magic
+magic.mime
+mailcap
+mailcap.order
+manpath.config
+mime.types
+mke2fs.conf
+modprobe.d
+modules
+modules-load.d
+mtab
+nanorc
+netconfig
+netplan
+network
+networkd-dispatcher
+networks
+newt
+nftables.conf
+nsswitch.conf
+openvpn
+opt
+os-release
+pam.conf
+pam.d
+paperspecs
+passwd
+passwd-
+pcmcia
+perl
+pki
+plymouth
+pm
+pnm2ppa.conf
+polkit-1
+ppp
+profile
+profile.d
+protocols
+pulse
+python3
+python3.13
+rc0.d
+rc1.d
+rc2.d
+rc3.d
+rc4.d
+rc5.d
+rc6.d
+rcS.d
+resolv.conf
+rmt
+rpc
+rsyslog.conf
+rsyslog.d
+rygel.conf
+sane.d
+screenrc
+security
+selinux
+sensors.d
+sensors3.conf
+services
+sgml
+shadow
+shadow-
+shells
+skel
+snmp
+speech-dispatcher
+ssh
+ssl
+sssd
+subgid
+subgid-
+subuid
+subuid-
+sudo.conf
+sudo_logsrvd.conf
+sudoers
+sudoers.d
+supercat
+sysctl.d
+sysstat
+systemd
+terminfo
+timezone
+tmpfiles.d
+ubuntu-advantage
+ucf.conf
+udev
+udisks2
+ufw
+update-manager
+update-motd.d
+update-notifier
+usb_modeswitch.conf
+usb_modeswitch.d
+vconsole.conf
+vim
+vtrgb
+vulkan
+wgetrc
+wpa_supplicant
+xattr.conf
+xdg
+xml
+zsh_command_not_found
+stderr:
+ls: cannot access '/nonexistent_directory': No such file or directory
+--- combined stdout+stderr (2>&1) ---
+--- combined stdout+stderr (&>) ---
+--- /dev/null (discard output) ---
+--- stdin redirection ---
+apple
+apple
+banana
+cherry
+date
+--- Challenge Redirection ---
+1a: .conf files in /etc:
+/etc/debconf.conf
+/etc/mke2fs.conf
+/etc/nftables.conf
+/etc/logrotate.conf
+/etc/sudo.conf
+/etc/fwupd/fwupd.conf
+/etc/fwupd/remotes.d/lvfs-testing.conf
+/etc/fwupd/remotes.d/lvfs.conf
+/etc/fwupd/remotes.d/vendor-directory.conf
+/etc/fonts/fonts.conf
+/etc/fonts/snap-override/10-prefer-noto.conf
+/etc/fonts/conf.avail/57-dejavu-sans-mono.conf
+/etc/fonts/conf.avail/20-unhint-small-dejavu-lgc-sans.conf
+/etc/fonts/conf.avail/20-unhint-small-dejavu-lgc-serif.conf
+/etc/fonts/conf.avail/57-dejavu-serif.conf
+/etc/fonts/conf.avail/58-dejavu-lgc-serif.conf
+/etc/fonts/conf.avail/65-droid-sans-fallback.conf
+/etc/fonts/conf.avail/57-dejavu-sans.conf
+/etc/fonts/conf.avail/58-dejavu-lgc-sans-mono.conf
+/etc/fonts/conf.avail/20-unhint-small-dejavu-sans.conf
+1b: Here document:
+Your Name
+p20250002
+$(date)
+1c: tee output:
+total 1216
+drwxr-xr-x 141 root                 root                 12288 Apr  6 16:11 .
+drwxr-xr-x  20 root                 root                  4096 Mar 19 11:01 ..
+-rw-------   1 root                 root                     0 Oct  7 09:35 .pwd.lock
+-rw-r--r--   1 root                 root                   789 Oct  7 09:35 .resolv.conf.systemd-resolved.bak
+-rw-r--r--   1 root                 root                   208 Oct  7 09:35 .updated
+drwxr-xr-x   2 root                 root                  4096 Apr  6 16:11 ImageMagick-7
+drwxr-xr-x   5 root                 root                  4096 Oct  7 09:45 ModemManager
+drwxr-xr-x   8 root                 root                  4096 Oct  7 09:46 NetworkManager
+drwxr-xr-x   2 root                 root                  4096 Oct  7 09:50 PackageKit
+drwxr-xr-x   2 root                 root                  4096 Oct  7 09:47 UPower
+drwxr-xr-x  11 root                 root                  4096 Oct  7 09:50 X11
+-rw-r--r--   1 root                 root                  4027 May 23  2025 adduser.conf
+drwxr-xr-x   3 root                 root                  4096 Oct  7 09:44 alsa
+drwxr-xr-x   2 root                 root                  4096 Apr  6 16:11 alternatives
+(Also saved to tee_output.txt)
